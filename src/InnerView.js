@@ -7,30 +7,13 @@ import { sendContactMessage } from "./api";
 import SendEmailBtn from "./SendEmailBtn";
 
 const StyledInnerView = styled.div`
-  width: 100%;
   height: max-content;
-  width: 78.57rem;
+  max-width: 78.57rem;
+  min-width: 320px;
   margin: 0 auto 35rem;
 `;
 
-const SubmitBtnContainer = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-`;
-
-const Loadingdiv = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
 function InnerView({ maxIndex, goNextCard, currentIndex, setCurrentIndex }) {
-  const [isLoading, setIsLoading] = useState(false);
-  const sendMessage = async () => {
-    setIsLoading(true);
-    const result = await sendContactMessage();
-    setIsLoading(false);
-  };
   return (
     <StyledInnerView>
       {cards.map((card, index) => (
