@@ -98,7 +98,13 @@ function Card({
         <AnswerNumber>N{index}.</AnswerNumber>
         <StyledTitle>{title}</StyledTitle>
       </StyledTitleContainer>
-      {link ? <a href={link}>웹 포트폴리오</a> : ""}
+      {link ? (
+        <a href={link} target={"_blank"}>
+          웹 포트폴리오
+        </a>
+      ) : (
+        ""
+      )}
       <StyledContent>
         {content.map((text, index) => {
           return (
@@ -110,7 +116,11 @@ function Card({
         })}
       </StyledContent>
       {isLast() ? (
-        <Button size={{ width: 8.5, height: 3.4 }} text={"다음"} onclick={goNextCard}>
+        <Button
+          size={{ width: 8.5, height: 3.4 }}
+          text={"다음"}
+          onclick={goNextCard}
+        >
           다음 보기
         </Button>
       ) : (
