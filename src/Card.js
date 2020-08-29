@@ -52,7 +52,16 @@ const StyledContent = styled.p`
   font-size: ${(props) => props.theme.fontSize.label};
 `;
 
-function Card({ title, content, index, maxIndex, goNextCard, currentIndex, setCurrentIndex }) {
+function Card({
+  title,
+  content,
+  link,
+  index,
+  maxIndex,
+  goNextCard,
+  currentIndex,
+  setCurrentIndex,
+}) {
   const isLast = () => index === maxIndex;
   const cardRef = useRef();
 
@@ -89,6 +98,7 @@ function Card({ title, content, index, maxIndex, goNextCard, currentIndex, setCu
         <AnswerNumber>N{index}.</AnswerNumber>
         <StyledTitle>{title}</StyledTitle>
       </StyledTitleContainer>
+      {link ? <a href={link}>웹 포트폴리오</a> : ""}
       <StyledContent>
         {content.map((text, index) => {
           return (
